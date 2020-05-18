@@ -1,0 +1,37 @@
+# [START swagger]
+swagger: "2.0"
+info:
+  description: "A simple Google Cloud Endpoints API example."
+  title: "Endpoints Testing"
+  version: "1.0.0"
+host: "fonedef.appspot.com"
+# [END swagger]
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "https"
+paths:
+  /domains:
+    get:
+      description: "Returns list of malicious domains"
+      operationId: "123"
+      responses:
+        '200':
+          description: OK
+definitions:
+  echoMessage:
+    properties:
+      message:
+        type: "string"
+# This section requires all requests to any path to require an API key.
+security:
+- api_key: []
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
+
